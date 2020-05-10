@@ -24,12 +24,7 @@ steps:
   inputs: 
     version: '2.2.x' 
 
-- task: DotNetCoreCLI@2
-  displayName: 'Restore'
-  inputs: 
-    commands: restore
-    projects: **/*.csproj
-    feedsToUse: Config
+- script: dotnet restore
     
     
 
