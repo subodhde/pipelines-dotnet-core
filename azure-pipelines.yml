@@ -13,10 +13,25 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet Restore --configuration $(buildConfiguration)
-  displayName: 'dotnet Restore'
 
-- script: dotnet build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+- task: UseDotNet@2
+  displayName: 'Use .Net SDK 3.0.x'
+  inputs: 
+    version: '3.0.x'
+    
+- task: UseDotNet@2
+  displayName: 'Use .Net SDK 2.0.x'
+  inputs: 
+    version: '2.2.x' 
+
+- task: DotNetCoreCLI@2
+  displayName: 'Restore'
+  inputs: 
+    commands: restore
+    projects: **/*.csproj
+    feedsToUse: Config
+    
+    
+
 
 
