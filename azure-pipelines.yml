@@ -25,6 +25,12 @@ steps:
     version: '2.2.x' 
 
 - script: dotnet restore
+  displayName: 'Restore packages'
+  
+- script: dotnet build
+  displayName: 'Build Code'
+  
+  
     
     
 
